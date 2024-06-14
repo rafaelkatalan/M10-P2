@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./app
+    ports:
+      - "${SERVICE01_HOST_PORT}:${SERVICE_01_PORT}"
+    env_file:
+      - .env
+
+  gateway:
+    build: ./nginx
+    ports:
+      - "80:80"
